@@ -1,17 +1,20 @@
+from typing import Any
+
+
 class Node:
 
     def __init__(self,
-                 element: object,
+                 element: Any,
                  next_node: 'Node' or None):
         self.__element = element
         self.__next_node = next_node
 
     @property
-    def element(self) -> object:
+    def element(self) -> Any:
         return self.__element
 
     @element.setter
-    def element(self, value: object):
+    def element(self, value: Any):
         self.__element = value
 
     @property
