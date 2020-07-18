@@ -1,5 +1,6 @@
 from typing import Any
 
+from src.domain.iterator.singly_linked_list_iterator import SinglyLinkedListIterator
 from src.domain.list.list import List
 from src.domain.shared.node import Node
 
@@ -59,13 +60,17 @@ class SinglyLinkedList(List):
         index = 0
         current = self.__head
 
-        while index < self.__current_items:
+        while index < item:
             current = current.next_node
+            index += 1
 
         return current.element
 
     def __iter__(self):
-        pass
+        iterator = SinglyLinkedListIterator(self)
+
+        while iterator.has_next():
+            yield iterator.next()
 
     def __len__(self):
         return self.__current_items
